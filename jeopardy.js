@@ -41,6 +41,9 @@ class Game extends React.Component {
         <button onClick={() => this.updateScore(800)}>+</button><br />
         <button onClick={() => this.updateScore(-1000)}>-</button>1000
         <button onClick={() => this.updateScore(1000)}>+</button><br />
+        <input ref='wagerBox' type='text' /><br />
+        <button onClick={() => { this.eternalLife(); } }>I wagered wisely</button>
+        <button onClick={() => { this.dust(); } }>I wagered poorly</button>
       </div>
     );
 }
@@ -53,6 +56,11 @@ zoomPicOut() {
 updateScore(n) {
   this.setState({score: this.state.score += n});
 }
-
+eternalLife() {
+  this.setState({ score: this.refs.wagerBox.value });
+}
+dust() {
+  this.setState({ score: this.refs.wagerBox.value });
+}
 }
 ReactDOM.render(<Game pic="http://a.abcnews.go.com/images/Entertainment/ht_alex_trebek_mustache_jeopardy_1_jc_140911_16x9_992.jpg"/>, document.getElementById('example'))
